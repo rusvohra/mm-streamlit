@@ -154,7 +154,11 @@ fig2 = px.imshow(
 
 # fig2.update_xaxes(showticklabels=False).update_yaxes(showticklabels=False)
 fig2.update_layout(coloraxis_showscale=False)
-fig2.update_xaxes(showticklabels=False, showgrid=False)
-fig2.update_yaxes(showticklabels=False, showgrid=False)
+fig2.update_xaxes(
+    showticklabels=False, ticks="", showgrid=False, zeroline=False
+)
+fig2.update_yaxes(
+    showticklabels=False, ticks="", showgrid=False, zeroline=False
+)
 
 st.plotly_chart(fig2, use_container_width=True)
