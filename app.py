@@ -130,8 +130,8 @@ fig2 = px.imshow(
     y=None,
     animation_frame="Time",
     aspect="equal",
-    range_color=[0, 300],
-    color_continuous_scale="darkmint_r",
+    range_color=[0, 255],
+    color_continuous_scale="cividis",
 )
 # fig2.update_coloraxes(colorbar_title_text="Solar Irradiance (W/m2)")
 
