@@ -35,7 +35,7 @@ data, images = load_data()
 
 st.write(
     "Choose a date between 3rd November 2021 and 9th January 2022 to see the \
-    solar forecasts based on sensor data, imagery, and their multi-modal combination"
+    solar forecasts based on sensor data, imagery, and their multi-modal combination."
 )
 
 # Set the minimum and maximum selectable dates
