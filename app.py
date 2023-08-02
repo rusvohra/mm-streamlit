@@ -17,10 +17,21 @@ def load_data():
     data = pd.read_csv("forecast.csv")
     data["Time"] = pd.to_datetime(data["Time"])
     images = np.load("delft_novjan_128.npz")["arr_0"]
-    return data, images
+
+    y, x = np.ogrid[:128, :128]
+    radius = 64
+    mask = (x - 63.5) ** 2 + (y - 63.5) ** 2 <= radius**2
+
+    # Step 4: Use the mask to extract the circular region from the original array
+    masked_array = np.ma.array(
+        images, mask=np.broadcast_to(~mask, images.shape)
+    )
+
+    return data, masked_array
 
 
 data, images = load_data()
+
 
 st.write(
     "Choose a date between 3rd November 2021 and 9th January 2022 to see the \
@@ -133,6 +144,7 @@ fig2 = px.imshow(
     range_color=[0, 255],
     color_continuous_scale="blues_r",
 )
+
 # fig2.update_coloraxes(colorbar_title_text="Solar Irradiance (W/m2)")
 
 # fig2.update_traces(
@@ -142,7 +154,7 @@ fig2 = px.imshow(
 
 # fig2.update_xaxes(showticklabels=False).update_yaxes(showticklabels=False)
 fig2.update_layout(coloraxis_showscale=False)
-fig2.update_xaxes(showticklabels=False)
-fig2.update_yaxes(showticklabels=False)
+fig2.update_xaxes(showticklabels=False, showgrid=False)
+fig2.update_yaxes(showticklabels=False, showgrid=False)
 
 st.plotly_chart(fig2, use_container_width=True)
