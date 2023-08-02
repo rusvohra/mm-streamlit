@@ -115,7 +115,7 @@ fig.update_layout(
     title=f"Solar Irradiance (W/m2) on {selected_data_key}",
     xaxis_title="Time",
     yaxis_title="Solar Irradiance (W/m2)",
-    # template="plotly_dark",
+    template="plotly_dark",
 )
 
 # Display the Plotly line plot
@@ -130,8 +130,8 @@ fig2 = px.imshow(
     y=None,
     animation_frame="Time",
     aspect="equal",
-    range_color=[0, 255],
-    color_continuous_scale="solar",
+    range_color=[0, 300],
+    color_continuous_scale="darkmint_r",
 )
 # fig2.update_coloraxes(colorbar_title_text="Solar Irradiance (W/m2)")
 
