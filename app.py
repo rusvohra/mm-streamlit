@@ -94,8 +94,9 @@ fig.add_trace(
         x=selected_data["Time"],
         y=selected_data["MM"],
         mode="lines",
-        name="Multi-Modal, R2 = {}, RMSE = {}".format(
-            str(round(r2_mm, 3)), str(round(rmse_mm, 3))
+        name="Multi-Modal, R2 = {}".format(
+            str(round(r2_mm, 3)),
+            # str(round(rmse_mm, 3))
         ),
     ),
 )
@@ -104,8 +105,9 @@ fig.add_trace(
         x=selected_data["Time"],
         y=selected_data["Meteo"],
         mode="lines",
-        name="Sensor Data, R2 = {}, RMSE = {}".format(
-            str(round(r2_meteo, 3)), str(round(rmse_meteo, 3))
+        name="Sensor Data, R2 = {}".format(
+            str(round(r2_meteo, 3)),
+            # str(round(rmse_meteo, 3))
         ),
     ),
 )
@@ -114,8 +116,9 @@ fig.add_trace(
         x=selected_data["Time"],
         y=selected_data["Imagery"],
         mode="lines",
-        name="Sky Imagery, R2 = {}, RMSE = {}".format(
-            str(round(r2_img, 3)), str(round(rmse_img, 3))
+        name="Sky Imagery, R2 = {}".format(
+            str(round(r2_img, 3)),
+            # str(round(rmse_img, 3))
         ),
     ),
 )
