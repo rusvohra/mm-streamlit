@@ -16,7 +16,7 @@ from sklearn.metrics import r2_score, mean_squared_error
 def load_data():
     data = pd.read_csv("forecast.csv")
     data["Time"] = pd.to_datetime(data["Time"])
-    images = np.load("data/delft_novjan_128.npz")["arr_0"]
+    images = np.load("delft_novjan_128.npz")["arr_0"]
     return data, images
 
 
