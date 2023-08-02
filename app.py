@@ -115,7 +115,7 @@ fig.update_layout(
     title=f"Solar Irradiance (W/m2) on {selected_data_key}",
     xaxis_title="Time",
     yaxis_title="Solar Irradiance (W/m2)",
-    template="plotly_dark",
+    # template="plotly_dark",
 )
 
 # Display the Plotly line plot
