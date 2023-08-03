@@ -7,6 +7,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from io import StringIO
 from sklearn.metrics import r2_score, mean_squared_error
+from scipy.stats import pearsonr
 
 
 # import data
@@ -68,15 +69,19 @@ r2_meteo = r2_score(selected_data["Meteo"], selected_data["True"])
 r2_img = r2_score(selected_data["Imagery"], selected_data["True"])
 r2_mm = r2_score(selected_data["MM"], selected_data["True"])
 
-rmse_meteo = np.sqrt(
-    mean_squared_error(selected_data["Meteo"], selected_data["True"])
-)
-rmse_img = np.sqrt(
-    mean_squared_error(selected_data["Imagery"], selected_data["True"])
-)
-rmse_mm = np.sqrt(
-    mean_squared_error(selected_data["MM"], selected_data["True"])
-)
+r_meteo = pearsonr(selected_data["Meteo"], selected_data["True"]).statistic
+r_img = pearsonr(selected_data["Imagery"], selected_data["True"]).statistic
+r_mm = pearsonr(selected_data["MM"], selected_data["True"]).statistic
+
+# rmse_meteo = np.sqrt(
+#     mean_squared_error(selected_data["Meteo"], selected_data["True"])
+# )
+# rmse_img = np.sqrt(
+#     mean_squared_error(selected_data["Imagery"], selected_data["True"])
+# )
+# rmse_mm = np.sqrt(
+#     mean_squared_error(selected_data["MM"], selected_data["True"])
+# )
 
 # Create a line plot using Plotly's go.Scatter
 fig = go.Figure()
@@ -94,8 +99,8 @@ fig.add_trace(
         x=selected_data["Time"],
         y=selected_data["MM"],
         mode="lines",
-        name="Multi-Modal, R2 = {}".format(
-            str(round(r2_mm, 3)),
+        name="Multi-Modal, R = {}".format(
+            str(round(r_mm, 3)),
             # str(round(rmse_mm, 3))
         ),
     ),
@@ -105,8 +110,8 @@ fig.add_trace(
         x=selected_data["Time"],
         y=selected_data["Meteo"],
         mode="lines",
-        name="Sensor Data, R2 = {}".format(
-            str(round(r2_meteo, 3)),
+        name="Sensor Data, R = {}".format(
+            str(round(r_meteo, 3)),
             # str(round(rmse_meteo, 3))
         ),
     ),
@@ -116,8 +121,8 @@ fig.add_trace(
         x=selected_data["Time"],
         y=selected_data["Imagery"],
         mode="lines",
-        name="Sky Imagery, R2 = {}".format(
-            str(round(r2_img, 3)),
+        name="Sky Imagery, R = {}".format(
+            str(round(r_img, 3)),
             # str(round(rmse_img, 3))
         ),
     ),
