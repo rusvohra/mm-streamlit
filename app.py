@@ -27,16 +27,31 @@ def load_data():
     masked_array = np.ma.array(
         images, mask=np.broadcast_to(~mask, images.shape)
     )
+    # masked_array = masked_array / 255
 
     return data, masked_array
 
 
 data, images = load_data()
 
+st.title("Multi-Modal Learning for Forecasting Solar Power")
 
 st.write(
-    "Choose a date between 3rd November 2021 and 9th January 2022 to see the \
-    solar forecasts based on sensor data, imagery, and their multi-modal combination."
+    "This app visualizes three distinct forecasts of solar irradiance over a sample \
+    dataset located in Delft, the Netherlands. The forecasts are made from \
+    neural networks trained on either meteorological sensor data (such as humidity \
+    and air temperature), sky imagery (as illustrated at the bottom of the page), or \
+    a multi-modal fusion of these two data sources. This is based on the following \
+    research, which describes in detail the methodology and results of our study into \
+    multi-modal learning for power forecasting:"
+)
+st.write("Vohra, Rushil, Ali Rajaei, and Jochen L. Cremer. 'End-to-end learning with \
+         multiple modalities for system-optimised renewables nowcasting.' IEEE PowerTech \
+         2023, Belgrade, Serbia. https://arxiv.org/abs/2304.04086."
+)
+st.write(       
+            "To get started, choose a date between 3rd November 2021 and 9th January 2022 \
+            to see the solar forecasts based on sensor data, imagery, and their multi-modal combination."
 )
 
 # Set the minimum and maximum selectable dates
@@ -85,7 +100,6 @@ r_mm = pearsonr(selected_data["MM"], selected_data["True"]).statistic
 
 # Create a line plot using Plotly's go.Scatter
 fig = go.Figure()
-# fig = make_subplots(rows=2, cols=1)
 fig.add_trace(
     go.Scatter(
         x=selected_data["Time"],
@@ -141,7 +155,7 @@ fig.update_layout(
 st.plotly_chart(fig, use_container_width=True)
 
 # Load and display the corresponding image based on the user's selection
-# st.write("Sky Imagery")
+st.write("**Sky Imagery**: explore the sky imagery captured in Delft during the chosen day.")
 
 fig2 = px.imshow(
     images_xr,
@@ -153,14 +167,6 @@ fig2 = px.imshow(
     color_continuous_scale="blues_r",
 )
 
-# fig2.update_coloraxes(colorbar_title_text="Solar Irradiance (W/m2)")
-
-# fig2.update_traces(
-#     dict(showscale=False, coloraxis=None, colorscale="gray"),
-#     # selector={"type": "heatmap"},
-# )
-
-# fig2.update_xaxes(showticklabels=False).update_yaxes(showticklabels=False)
 fig2.update_layout(coloraxis_showscale=False)
 fig2.update_xaxes(
     showticklabels=False, ticks="", showgrid=False, zeroline=False
