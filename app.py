@@ -45,13 +45,14 @@ st.write(
     research, which describes in detail the methodology and results of our study into \
     multi-modal learning for power forecasting:"
 )
-st.write("Vohra, Rushil, Ali Rajaei, and Jochen L. Cremer. 'End-to-end learning with \
-         multiple modalities for system-optimised renewables nowcasting.' IEEE PowerTech \
-         2023, Belgrade, Serbia. https://arxiv.org/abs/2304.04086."
+st.write(
+    "Vohra, Rushil, Ali Rajaei, and Jochen L. Cremer. 'End-to-end learning with \
+    multiple modalities for system-optimised renewables nowcasting.' IEEE PowerTech \
+    2023, Belgrade, Serbia. https://arxiv.org/abs/2304.04086."
 )
 st.write(       
-            "To get started, choose a date between 3rd November 2021 and 9th January 2022 \
-            to see the solar forecasts based on sensor data, imagery, and their multi-modal combination."
+    "To get started, choose a date between 3rd November 2021 and 9th January 2022 \
+    to see the solar forecasts based on sensor data, imagery, and their multi-modal combination."
 )
 
 # Set the minimum and maximum selectable dates
