@@ -48,7 +48,7 @@ st.write(
 st.write(
     "Vohra, Rushil, Ali Rajaei, and Jochen L. Cremer. 'End-to-end learning with \
     multiple modalities for system-optimised renewables nowcasting.' IEEE PowerTech \
-    2023, Belgrade, Serbia. https://arxiv.org/abs/2304.04086."
+    2023, Belgrade, Serbia. https://arxiv.org/abs/2304.07151."
 )
 st.write(       
     "To get started, choose a date between 3rd November 2021 and 9th January 2022 \
