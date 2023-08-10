@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head style="font-family:arial, sans-serif">
+    <title>Date Picker Example</title>
+
+</head>
+
+<body>
+    <h1>Date Picker Example</h1>
+    <form method="POST" action="/">
+        {{ form.hidden_tag() }}
+        <!-- Replace the form.date field with your custom HTML input -->
+        <label for="date">Select a Date</label>
+        <input type="date" id="date" class="form-control" name="date" min="2021-11-02" max="2022-01-09">
+        <style>
+            input[type="date"]::-webkit-calendar-picker-indicator {
+                background: transparent;
+                bottom: 0;
+                color: transparent;
+                cursor: pointer;
+                height: auto;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: auto;
+            }
+        </style>
+        <button type="submit">Submit</button>
+    </form>
+    {% if selected_date %}
+    <h2>Selected Date: {{ selected_date }}</h2>
+    {% endif %}
+</body>
+
+</html>
