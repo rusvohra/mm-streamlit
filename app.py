@@ -34,7 +34,7 @@ def load_data():
 
 data, images = load_data()
 
-st.title("Multi-Modal Learning for Forecasting Solar Power")
+st.title("Multi-Modal Learning for Nowcasting Solar Power")
 
 st.write(
     "This app visualizes three distinct forecasts of solar irradiance over a sample \
@@ -43,7 +43,7 @@ st.write(
     and air temperature), sky imagery (as illustrated at the bottom of the page), or \
     a multi-modal fusion of these two data sources. This is based on the following \
     research, which describes in detail the methodology and results of our study into \
-    multi-modal learning for power forecasting:"
+    multi-modal learning for power nowcasting:"
 )
 st.write(
     "Vohra, Rushil, Ali Rajaei, and Jochen L. Cremer. 'End-to-end learning with \
