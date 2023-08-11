@@ -1,5 +1,5 @@
 # mm-streamlit
-# Multi-Modal Learning for Renewables Forecasting
+# Multi-Modal Learning for Renewables Nowcasting
 
 This repository contains a visualization of multi-modal solar power forecasting, developed upon the paper:
 * Vohra, Rushil, Ali Rajaei, and Jochen L. Cremer. "End-to-end learning with multiple modalities for system-optimised renewables nowcasting." IEEE PowerTech 2023, Belgrade, Serbia, https://arxiv.org/abs/2304.07151.
